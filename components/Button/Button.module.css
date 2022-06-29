@@ -22,7 +22,7 @@
 .ghost {
     color: var(--black);
     border: 1px solid var(--grey-light);
-    background-color: none;
+    background-color: transparent;
 }
 
 .ghost:hover {
@@ -36,9 +36,6 @@
 }
 
 .down {
-
-}
-
-.right {
-
+    transform: rotate(90deg);
+    transition: all 0.2s;
 }
