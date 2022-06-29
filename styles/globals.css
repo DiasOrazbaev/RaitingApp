@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--black);
+  background: #F5F6F8;
+  font-family: var(--font-family);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #3B434E;
+  --white: white;
+  --primary: #7653FC;
+  --primary-hover: #6140e9;
+  --red: #FC836D;
+  --green: #1DC47E;
+  --green-light: #1DC37E;
+  --font-family: 'Noto Sans', sans-serif;
+  --grey-light: #ebebeb;
+}
