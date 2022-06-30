@@ -1,6 +1,24 @@
-import {Button, Htag, Pr, Tag} from "../components";
+import {Button, Htag, Pr, Rating, Tag} from "../components";
+import {useEffect, useState} from "react";
 
 export default function Home() {
+    const [counter, setCounter] = useState<number>(0);
+
+    useEffect(() => {
+        console.log('counter: ' + counter);
+        return function cleanup() {
+            console.log('Unmounting: ' + counter);
+        }
+    },);
+
+    useEffect(() => {
+        console.log('Mounted');
+        return function cleanup() {
+            console.log('Unmounted');
+        }
+    });
+
+    const [rating, setRating] = useState<number>(0);
     return (
         <div>
             <Htag tag={'h1'}>Работаем</Htag>
@@ -8,6 +26,8 @@ export default function Home() {
             <Button appearance={'primary'}>Купить</Button>
             <Button appearance={'ghost'} arrow={'right'}>Больше отзывов</Button>
 
+            <Htag tag={'h1'}>{counter} clicks!</Htag>
+            <Button appearance={'primary'} onClick={() => setCounter(x => x + 1)}> Click </Button>
 
             <Pr size={'l'}>Выше указаны программы Adobe InDesign, Adobe Illustrator, Corel Draw и ими можно успешно
                 пользоваться дома или в дороге. Современные ноутбуки хорошо справляются с нагрузкой, так зачем загонять
@@ -26,12 +46,12 @@ export default function Home() {
                 присуща обоим курсам GeekBrains. Хочу отметить, что с первого дня занятий вы приступаете к практике и
                 получаете опыт коммерческой разработки уже в свое резюме. Скажу вам как прошедший это – реально помогло
                 в трудоустройстве!</Pr>
-
-
-
             <Tag color={'ghost'} size={'m'}> Ghost </Tag>
             <Tag color={'green'} size={'s'}> Green </Tag>
             <Tag color={'primary'} size={'s'}> primary </Tag>
+
+
+            <Rating rating={rating} isEditable={true} setRating={setRating}/>
         </div>
     );
 }
